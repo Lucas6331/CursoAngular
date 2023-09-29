@@ -9,6 +9,12 @@ import { HomeComponent } from './components/home/home.component';
 import { ListarProdutosComponent } from './components/produtos/listar-produtos/listar-produtos.component';
 import { CadastrarProdutoComponent } from './components/produtos/cadastrar-produto/cadastrar-produto.component';
 
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,13 +22,10 @@ import { CadastrarProdutoComponent } from './components/produtos/cadastrar-produ
     FooterComponent,
     HomeComponent,
     ListarProdutosComponent,
-    CadastrarProdutoComponent
+    CadastrarProdutoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
